@@ -21,7 +21,7 @@ function Home({ darkMode, setDarkMode }) {
     formData.append("file", selectedFile);
     try {
       const response = await axios.post(
-        "http://localhost:3000/convertFile",
+        `${import.meta.env.VITE_API_URL}/convertFile`,
         formData,
         { responseType: "blob" }
       );
