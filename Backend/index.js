@@ -8,7 +8,12 @@ const fs = require("fs");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors({
+  origin: "https://docxtopdf-7i6l.onrender.com", // your frontend Render URL
+  methods: ["GET", "POST"],
+  credentials: true,
+}));
+
 
 // Ensure 'uploads' and 'files' directories exist
 const uploadsDir = path.join(__dirname, "uploads");
