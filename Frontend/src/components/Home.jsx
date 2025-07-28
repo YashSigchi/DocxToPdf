@@ -21,10 +21,11 @@ function Home({ darkMode, setDarkMode }) {
     formData.append("file", selectedFile);
     try {
       const response = await axios.post(
-        "http://localhost:3000/convertFile",
+        "https://docxtopdf-backend.onrender.com/convertFile",
         formData,
         { responseType: "blob" }
       );
+
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
